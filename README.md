@@ -1,6 +1,7 @@
 ## Authors
 
 - Liz Rush
+- Ellen Wondra-Lindley
 
 # FarMar Finder
 
