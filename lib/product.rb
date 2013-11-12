@@ -14,6 +14,7 @@ class Product
 	def self.all
 		CSV.read(file_location).map do |array|
 			Product.new(array)
+    end
 	end
 
 	def self.find(id)

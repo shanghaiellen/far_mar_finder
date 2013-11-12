@@ -9,60 +9,53 @@ class Vendor
     @market_id = array[3].to_i
   end
 
-  def self.file_location
-    "./support/vendors.csv"
+  def market
+    Market.find(@id)
+  end
+
+  def sales
+    Sale.find_by_vendor_id(@id)
+  end
+
+  def product
+    Product.find_by_vendor_id(@id)
   end
 
   def self.all
-    CSV.read(file_location).map do |array|
+    CSV.read("./support/vendors.csv").map do |array|
       Vendor.new(array)
     end
   end
 
 
   def self.find(id)
-    vendor = Vendor.new(all.find do |array|
-      array[0].to_i == id.to_i
-    end)
+    all.find do |vendor|
+      vendor.id == id.to_i
+    end
   end
 
   def self.find_all_by_name(match)
-    array2 = []
-    all.select do |array|
-      if !array[1].nil?
-        if array[1].downcase == match.downcase
-          vendor = Vendor.new(array)
-          array2 << vendor
-        end
+    all.select do |vendor|
+      if !vendor.name.nil?
+        vendor.name.downcase == match.downcase
       end
     end
-    return array2
   end
 
   def self.find_all_by_no_of_employee(match)
-    array2 = []
-    all.select do |array|
-      if !array2[2].nil?
-        if array[2].downcase == match.downcase
-          vendor = Vendor.new(array)
-          array2 << vendor
-        end
+    all.select do |vendor|
+      if !vendor.no_of_employees.nil?
+        vendor.no_of_employees == match.to_i
       end
     end
-    return array2
   end
 
   def self.by_market(match)
-    array2 = []
-    all.select do |array|
-      if !array[3].nil?
-        if array[3].to_i == match.to_i
-          vendor = Vendor.new(array)
-          array2 << vendor
-        end
+    all.select do |vendor|
+      if !vendor.market_id.nil?
+        vendor.market_id == match.to_i
       end
     end
-    return array2
   end
 
 end

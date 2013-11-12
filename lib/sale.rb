@@ -25,7 +25,7 @@ class Sale
   def self.find(id)
     sale = all.find do |array|
       array[0].to_i == id.to_i
-    end)
+    end
   end
 
   def self.find_by_amount(match)
