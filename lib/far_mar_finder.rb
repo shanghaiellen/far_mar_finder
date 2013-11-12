@@ -9,4 +9,20 @@ require_relative 'sale'
 
 class FarMarFinder
   # Your code goes here
+
+  def markets
+    Market
+  end
+
+  def vendors
+    Vendor
+  end
+
+  def products
+    Product 
+  end
+
+  def sales
+    Sale
+  end
 end

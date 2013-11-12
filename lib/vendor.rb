@@ -21,6 +21,15 @@ class Vendor
     Product.by_vendor(@id)
   end
 
+  def revenue
+    total = 0
+    sales.each do |sale|
+      total = total + sale.amount
+    end
+    return total
+  end
+
+
   def self.all
     CSV.read("./support/vendors.csv").map do |array|
       Vendor.new(array)
