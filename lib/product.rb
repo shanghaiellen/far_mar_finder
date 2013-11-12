@@ -7,6 +7,11 @@ class Product
     @vendor_id = array[2].to_i
   end
 
+  #We did not include a number_of_sales method
+  #since all you need to do is write sales.count and
+  #the tests don't call number_of_sales.
+  #We're trying to abide by DRY principles
+
   def vendor
     Vendor.find(@vendor_id)
   end
