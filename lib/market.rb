@@ -32,7 +32,7 @@ class Market
 
   def self.find_all_by_city(match)
     all.select do |market|
-      if !market.city.nil?
+      unless market.city.nil?
         market.city.downcase == match.downcase
       end
     end
@@ -40,7 +40,7 @@ class Market
 
   def self.find_all_by_state(match)
    all.select do |market|
-      if !market.state.nil?
+      unless market.state.nil?
         market.state.downcase == match.downcase
       end
     end
@@ -48,7 +48,7 @@ class Market
 
   def self.find_all_by_county(match)
    all.select do |market|
-      if !market.county.nil?
+      unless market.county.nil?
         market.county.downcase == match.downcase
       end
     end
@@ -56,7 +56,7 @@ class Market
 
   def self.find_all_by_zip(match)
    all.select do |market|
-      if !market.zip.nil?
+      unless market.zip.nil?
         market.zip.downcase == match.downcase
       end
     end
@@ -64,7 +64,7 @@ class Market
 
   def self.find_all_by_address(match)
    all.select do |market|
-      if !market.address.nil?
+      unless market.address.nil?
         market.address.downcase == match.downcase
       end
     end
@@ -72,16 +72,10 @@ class Market
 
   def self.find_all_by_name(match)
    all.select do |market|
-      if !market.name.nil?
+      unless market.name.nil?
         market.name.downcase == match.downcase
       end
     end
   end
-
-  # def 
-  # private
-  # def read_file
-  #   CSV.read(file_location)
-  # end
 
 end

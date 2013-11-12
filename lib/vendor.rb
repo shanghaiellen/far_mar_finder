@@ -45,7 +45,7 @@ class Vendor
 
   def self.find_all_by_name(match)
     all.select do |vendor|
-      if !vendor.name.nil?
+      unless vendor.name.nil?
         vendor.name.downcase == match.downcase
       end
     end
@@ -53,7 +53,7 @@ class Vendor
 
   def self.find_all_by_no_of_employee(match)
     all.select do |vendor|
-      if !vendor.no_of_employees.nil?
+      unless vendor.no_of_employees.nil?
         vendor.no_of_employees == match.to_i
       end
     end
@@ -61,7 +61,7 @@ class Vendor
 
   def self.by_market(match)
     all.select do |vendor|
-      if !vendor.market_id.nil?
+      unless vendor.market_id.nil?
         vendor.market_id == match.to_i
       end
     end

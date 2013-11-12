@@ -34,7 +34,7 @@ class Sale
 
   def self.find_by_amount(match)
     all.select do |sale|
-      if !sale.amount.nil?
+      unless sale.amount.nil?
         sale.amount == match.to_i
       end
     end
@@ -42,7 +42,7 @@ class Sale
 
   def self.find_by_purchase_time(match)
     all.select do |sale|
-      if !sale.purchase_time.nil?
+      unless sale.purchase_time.nil?
         sale.purchase_time == match.to_time
       end
     end
@@ -50,7 +50,7 @@ class Sale
 
   def self.find_by_vendor_id(match)
     all.select do |sale|
-      if !sale.vendor_id.nil?
+      unless sale.vendor_id.nil?
         sale.vendor_id == match.to_i
       end
     end
@@ -58,7 +58,7 @@ class Sale
 
   def self.find_by_product_id(match)
     all.select do |sale|
-      if !sale.product_id.nil?
+      unless sale.product_id.nil?
         sale.product_id == match.to_i
       end
     end
@@ -66,7 +66,7 @@ class Sale
 
   def self.between(beginning_time, end_time)
       all.select do |sale|
-      if !sale.purchase_time.nil?
+      unless sale.purchase_time.nil?
         sale.purchase_time >= beginning_time && sale.purchase_time <= end_time
       end
     end

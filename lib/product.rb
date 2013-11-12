@@ -34,7 +34,7 @@ class Product
 
   def self.find_all_by_name(match)
     all.select do |product|
-      if !product.name.nil?
+      unless product.name.nil?
         product.name.downcase == match.downcase
       end
     end
@@ -42,7 +42,7 @@ class Product
 
   def self.by_vendor(match)
     all.select do |product|
-      if !product.vendor_id.nil?
+      unless product.vendor_id.nil?
         product.vendor_id == match.to_i
       end
     end
