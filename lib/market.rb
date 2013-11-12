@@ -5,7 +5,7 @@ class Market
 
   def initialize(array)
     @name = array[1]
-    @id = array[0]
+    @id = array[0].to_i
     @address = array[2]
     @city = array[3]
     @county = array[4]
@@ -29,45 +29,82 @@ class Market
     end)   
   end
 # this code does not work. must rework
-  # def self.find_all_by_city(match)
-  #   array2 = []
-  #   CSV.read(file_location).select do |array|
-  #      if array[3].downcase == match.downcase
-  #       market = Market.new(array)
-  #       array2 << market
-  #     end
-  #   end
-  #   puts array2
-  # end
+  def self.find_all_by_city(match)
+    array2 = []
+    CSV.read(file_location).select do |array|
+      if !array[3].nil?
+        if array[3].downcase == match.downcase
+          market = Market.new(array)
+          array2 << market
+        end
+      end
+    end
+    return array2
+  end
 
   def self.find_all_by_state(match)
+    array2 = []
     CSV.read(file_location).select do |array|
-      array[5].downcase == match.downcase
+      if !array[5].nil?
+        if array[5].downcase == match.downcase
+          market = Market.new(array)
+          array2 << market
+        end
+      end
     end
+    return array2
   end
 
   def self.find_all_by_county(match)
+    array2 = []
     CSV.read(file_location).select do |array|
-      array[4].downcase == match.downcase
+      if !array[4].nil?
+        if array[4].downcase == match.downcase
+          market = Market.new(array)
+          array2 << market
+        end
+      end
     end
+    return array2
   end
 
   def self.find_all_by_zip(match)
+    array2 = []
     CSV.read(file_location).select do |array|
-      array[-1].to_i == match.to_i
+      if !array[-1].nil?
+        if array[-1].to_i == match.to_i
+                    market = Market.new(array)
+          array2 << market
+        end
+      end
     end
+    return array2
   end
 
   def self.find_all_by_address(match)
+    array2 = []
     CSV.read(file_location).select do |array|
-      array[2].downcase == match.downcase
+      if !array[2].nil?
+        if array[2].downcase == match.downcase
+          market = Market.new(array)
+          array2 << market
+        end
+      end
     end
+    return array2
   end
 
   def self.find_all_by_name(match)
+    array2 = []
     CSV.read(file_location).select do |array|
-      array[1].downcase == match.downcase
+      if !array[1].nil?
+        if array[1].downcase == match.downcase
+          market = Market.new(array)
+          array2 << market
+        end
+      end
     end
+    return array2
   end
 
   # def 
