@@ -17,8 +17,8 @@ class Vendor
     Sale.find_by_vendor_id(@id)
   end
 
-  def product
-    Product.find_by_vendor_id(@id)
+  def products
+    Product.by_vendor(@id)
   end
 
   def self.all

@@ -1,52 +1,46 @@
 class Product
-	attr_accessor :id, :name, :vendor_id
+  attr_accessor :id, :name, :vendor_id
 
-	def initialize(array)
-		@id = array[0].to_i
-		@name = array[1]
-		@vendor_id = array[2]
-	end
+  def initialize(array)
+    @id = array[0].to_i
+    @name = array[1]
+    @vendor_id = array[2].to_i
+  end
 
-	def self.file_location
-		"./support/products.csv"
-	end
+  def vendor
+    Vendor.find(@vendor_id)
+  end
 
-	def self.all
-		CSV.read(file_location).map do |array|
-			Product.new(array)
+  def sales
+    Sale.find_by_product_id(@id)
+  end
+
+  def self.all
+    CSV.read("./support/products.csv").map do |array|
+      Product.new(array)
     end
-	end
+  end
 
-	def self.find(id)
-		 product = Product.new(all.find do |array|
-      array[0].to_i == id.to_i
-    end)
+  def self.find(id)
+    all.find do |product|
+      product.id == id.to_i
+    end
   end
 
   def self.find_all_by_name(match)
-    array2 = []
-    all.select do |array|
-      if !array[1].nil?
-        if array[1].downcase == match.downcase
-          product = Product.new(array)
-          array2 << product
-        end
+    all.select do |product|
+      if !product.name.nil?
+        product.name.downcase == match.downcase
       end
     end
-    return array2
   end
 
-  def self.find_by_vendor_id(match)
-  	array2 = []
-    all.select do |array|
-      if !array[2].nil?
-        if array[2].to_i == match.to_i
-          product = Product.new(array)
-          array2 << product
-        end
+  def self.by_vendor(match)
+    all.select do |product|
+      if !product.vendor_id.nil?
+        product.vendor_id == match.to_i
       end
     end
-    return array2
   end
 
 end

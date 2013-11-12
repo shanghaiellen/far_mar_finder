@@ -12,71 +12,64 @@ class Sale
     @product_id = array[4].to_i
   end
 
-  def self.file_location
-    "./support/sales.csv"
+  def vendor
+    Vendor.find(@vendor_id)
+  end
+
+  def product
+    Product.find(@product_id)
   end
 
   def self.all
-    CSV.read(file_location).map do |array|
+    CSV.read("./support/sales.csv").map do |array|
       Sale.new(array)
     end
   end
 
   def self.find(id)
-    sale = all.find do |array|
-      array[0].to_i == id.to_i
+    all.find do |sale|
+      sale.id == id.to_i
     end
   end
 
   def self.find_by_amount(match)
-    array2 = []
-    all.select do |array|
-      if !array[1].nil?
-        if array[1].downcase == match.downcase
-          sale = Sale.new(array)
-          array2 << sale
-        end
+    all.select do |sale|
+      if !sale.amount.nil?
+        sale.amount == match.to_i
       end
     end
-    return array2
   end
 
   def self.find_by_purchase_time(match)
-    array2 = []
-    all.select do |array|
-      if !array[2].nil?
-        if array[2].to_time == match
-          sale = Sale.new(array)
-          array2 << sale
-        end
+    all.select do |sale|
+      if !sale.purchase_time.nil?
+        sale.purchase_time == match.to_time
       end
     end
-    return array2
   end
 
   def self.find_by_vendor_id(match)
-    array2 = []
-    all.select do |array|
-      if !array[3].nil?
-        if array[3].to_i == match.to_i
-          sale = Sale.new(array)
-          array2 << sale
-        end
+    all.select do |sale|
+      if !sale.vendor_id.nil?
+        sale.vendor_id == match.to_i
       end
     end
-    return array2
   end
 
   def self.find_by_product_id(match)
-    array2 = []
-    all.select do |array|
-      if !array[4].nil?
-        if array[4].downcase == match.downcase
-          sale = Sale.new(array)
-          array2 << sale
-        end
+    all.select do |sale|
+      if !sale.product_id.nil?
+        sale.product_id == match.to_i
       end
     end
-    return array2
   end
+
+  def self.between(beginning_time, end_time)
+      all.select do |sale|
+      if !sale.purchase_time.nil?
+        sale.purchase_time >= beginning_time && sale.purchase_time <= end_time
+      end
+    end
+  end
+
 end
