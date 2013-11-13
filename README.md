@@ -88,10 +88,14 @@ See below for full description of methods to create.
 - `sales` - returns a collection of `Sale` instances that are associated with market by the `vendor_id` field.
 - `revenue` - returns the the sum of all of the vendor's sales (in cents)
 - `self.by_market(market_it)` - returns all of the vendors with the given `market_id`
+<<<<<<< HEAD
+
+=======
 - `prefered_vendor` - returns the vendor with the highest revenue
 - `prefered_vendor(date)` - returns the vendor with the highest revenue for the given date
 - `worst_vendor` - returns the vendor with the lowest revenue
 - `worst_vendor(date)` - returns the vendor with the lowest revenue by date
+>>>>>>> 42e9a61507ccc19b0fe990921c6c223206841cb7
 
 **Additional Product Methods**
 
