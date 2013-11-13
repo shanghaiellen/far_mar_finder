@@ -70,6 +70,10 @@ class Sale
     end
   end
 
+  def self.random
+    all.sample
+  end
+
   private
   def self.get_all_sales
     CSV.read("./support/sales.csv").map do |array|

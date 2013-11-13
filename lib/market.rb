@@ -76,6 +76,10 @@ class Market
     end
   end
 
+  def self.random
+    all.sample
+  end
+
   private
   def self.get_markets
     CSV.read("./support/markets.csv").map do |array|

@@ -1,3 +1,5 @@
+require_relative 'sale'
+
 class Vendor
 
   attr_accessor :id, :name, :no_of_employees, :market_id
@@ -22,11 +24,7 @@ class Vendor
   end
 
   def revenue
-    total = 0
-    sales.each do |sale|
-      total = total + sale.amount
-    end
-    return total
+    sales.inject(0) { |total, sale| total + sale.amount}
   end
 
 
@@ -64,6 +62,10 @@ class Vendor
       end
     end
   end
+
+  def self.random
+    all.sample
+  end  
 
   private
   def self.get_all_vendors

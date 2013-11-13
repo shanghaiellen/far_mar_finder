@@ -46,6 +46,10 @@ class Product
     end
   end
 
+  def self.random
+    all.sample
+  end
+
   private
   def self.get_all_vendors
     CSV.read("./support/products.csv").map do |array|
