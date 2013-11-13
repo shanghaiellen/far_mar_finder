@@ -6,7 +6,7 @@ class Sale
 
   def initialize(array)
     @id = array[0].to_i
-    @amount = array[1].to_f
+    @amount = array[1].to_i
     @purchase_time = Time.parse(array[2])
     @vendor_id = array[3].to_i
     @product_id = array[4].to_i

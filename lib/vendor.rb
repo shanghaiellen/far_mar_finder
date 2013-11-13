@@ -12,7 +12,7 @@ class Vendor
   end
 
   def market
-    Market.find(@id)
+    Market.find(@market_id)
   end
 
   def sales
