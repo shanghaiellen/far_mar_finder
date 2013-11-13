@@ -19,9 +19,7 @@ class Market
   end
 
   def self.all
-    CSV.read("./support/markets.csv").map do |array|
-      Market.new(array)
-    end
+    @all_markets ||= get_markets
   end
 
   def self.find(id)
@@ -75,6 +73,13 @@ class Market
       unless market.name.nil?
         market.name.downcase == match.downcase
       end
+    end
+  end
+
+  private
+  def self.get_markets
+    CSV.read("./support/markets.csv").map do |array|
+      Market.new(array)
     end
   end
 

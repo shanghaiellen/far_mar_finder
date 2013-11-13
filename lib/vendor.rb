@@ -31,9 +31,7 @@ class Vendor
 
 
   def self.all
-    CSV.read("./support/vendors.csv").map do |array|
-      Vendor.new(array)
-    end
+    @all_vendors ||= get_all_vendors
   end
 
 
@@ -64,6 +62,13 @@ class Vendor
       unless vendor.market_id.nil?
         vendor.market_id == match.to_i
       end
+    end
+  end
+
+  private
+  def self.get_all_vendors
+    CSV.read("./support/vendors.csv").map do |array|
+      Vendor.new(array)
     end
   end
 

@@ -21,9 +21,7 @@ class Sale
   end
 
   def self.all
-    CSV.read("./support/sales.csv").map do |array|
-      Sale.new(array)
-    end
+    @all_sales ||= get_all_sales
   end
 
   def self.find(id)
@@ -69,6 +67,13 @@ class Sale
       unless sale.purchase_time.nil?
         sale.purchase_time >= beginning_time && sale.purchase_time <= end_time
       end
+    end
+  end
+
+  private
+  def self.get_all_sales
+    CSV.read("./support/sales.csv").map do |array|
+      Sale.new(array)
     end
   end
 

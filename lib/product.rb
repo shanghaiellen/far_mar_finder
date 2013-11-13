@@ -21,9 +21,7 @@ class Product
   end
 
   def self.all
-    CSV.read("./support/products.csv").map do |array|
-      Product.new(array)
-    end
+    @all_vendors ||= get_all_vendors
   end
 
   def self.find(id)
@@ -45,6 +43,13 @@ class Product
       unless product.vendor_id.nil?
         product.vendor_id == match.to_i
       end
+    end
+  end
+
+  private
+  def self.get_all_vendors
+    CSV.read("./support/products.csv").map do |array|
+      Product.new(array)
     end
   end
 
