@@ -33,7 +33,7 @@ class Market
     sorted[0][0]
   end
 
-  def preferred_vendor(date)
+  def preferred_vendor_by_date(date)
     revenue = []
     @vendor ||= vendors
     @vendor.each do |vendor| 
@@ -44,6 +44,20 @@ class Market
       end
     end
     sorted = revenue.sort {|a, b| b[1] <=> a[1]}
+    sorted[0][0]
+  end
+
+  def worst_vendor_by_date(date)
+    revenue = []
+    @vendor ||= vendors
+    @vendor.each do |vendor| 
+      vendor.sales.each do |sale|
+        if sale.date == date
+          revenue << [vendor, vendor.revenue]
+        end
+      end
+    end
+    sorted = revenue.sort {|a, b| a[1] <=> b[1]}
     sorted[0][0]
   end
 

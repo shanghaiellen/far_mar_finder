@@ -20,6 +20,26 @@ class Product
     Sale.find_by_product_id(@id)
   end
 
+  def best_day
+    dayhash = sales.group_by { |sale| sale.date}
+    puts dayhash
+
+    # result_hash = {:test => "testy"}
+    # sales.each do |sale|
+    #   result_hash[sale.date] = sale.find_by_date
+    #   puts result_hash
+    # end
+    # result_hash = result_hash.sort_by{ |key, value| value}
+    # puts result_hash
+    # result_hash.first
+  end
+
+  #ABOVE DOES NOT WORK! Maybe we should write a method that counts all of the sales in a day.
+
+  def revenue
+    sales.inject(0) { |total, sale| total + sale.amount}
+  end
+
   def self.all
     @all_vendors ||= get_all_vendors
   end
@@ -46,6 +66,14 @@ class Product
     end
   end
 
+  def self.most_revenue(n)
+    @product_revenue_array ||= get_revenue_array
+    sorted = @product_revenue_array.sort {|a, b| b[1] <=> a[1]}
+    n.times do |rank|
+      puts "#{sorted[rank][0].name} has a revenue of $#{sorted[rank][1].to_f/100}"
+    end 
+  end
+
   def self.random
     all.sample
   end
@@ -55,6 +83,12 @@ class Product
     CSV.read("./support/products.csv").map do |array|
       Product.new(array)
     end
+  end
+
+  def self.get_revenue_array
+    @product_revenue_array = []
+    all.each { |product| @product_revenue_array << [product, product.revenue] }
+    @product_revenue_array
   end
 
 end

@@ -16,7 +16,7 @@ class Vendor
   end
 
   def sales
-    Sale.find_by_vendor_id(@id)
+    @sales ||= Sale.find_by_vendor_id(@id)
   end
 
   def products
@@ -27,6 +27,25 @@ class Vendor
     sales.inject(0) { |total, sale| total + sale.amount}
   end
 
+  def revenue_by_date(n)
+    date_revenue = 0
+    sales.each do |sale|
+      if sale.date == n
+        date_revenue += sale.amount 
+      end
+    end
+    date_revenue
+  end
+
+  def revenue_by_dates(beginning, ending)
+    date_revenue = 0
+    sales.each do |sale|
+      if sale.date >= beginning && sale.date <= ending
+        date_revenue += sale.amount 
+      end
+    end
+    date_revenue
+  end
 
   def self.all
     @all_vendors ||= get_all_vendors
@@ -69,6 +88,12 @@ class Vendor
     n.times do |rank|
       puts "#{sorted[rank][0].name} has a revenue of $#{sorted[rank][1].to_f/100}"
     end 
+  end
+
+  def self.revenue_by_date(n)
+    date_revenue = 0
+    all.each { |vendor| date_revenue += vendor.revenue_by_date(n)}
+    date_revenue
   end
 
   def self.most_items(n)

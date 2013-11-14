@@ -58,6 +58,14 @@ class Sale
     end
   end
 
+  def self.find_by_date(match)
+    all.select do |sale|
+      unless sale.vendor_id.nil?
+        sale.purchase_time.to_date == match
+      end
+    end
+  end
+
   def self.find_by_product_id(match)
     all.select do |sale|
       unless sale.product_id.nil?
