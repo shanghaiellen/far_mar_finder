@@ -1,4 +1,4 @@
-require_relative 'sale'
+
 
 class Vendor
 
@@ -63,6 +63,15 @@ class Vendor
     end
   end
 
+  def self.most_revenue(n)
+    @vend_rev_array ||= get_revenue_array
+    sorted = @vend_rev_array.sort {|a, b| b[1] <=> a[1]}
+    n.times do |rank|
+      puts "#{sorted[rank][0].name} has a revenue of $#{sorted[rank][1].to_f/100}"
+    end 
+  end
+
+
   def self.random
     all.sample
   end  
@@ -72,6 +81,12 @@ class Vendor
     CSV.read("./support/vendors.csv").map do |array|
       Vendor.new(array)
     end
+  end
+
+  def self.get_revenue_array
+    @vend_rev_array = []
+    all.each { |vendor| @vend_rev_array << [vendor, vendor.revenue] }
+    @vend_rev_array
   end
 
 end
