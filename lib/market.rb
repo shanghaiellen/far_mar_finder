@@ -15,7 +15,44 @@ class Market
   end
 
   def vendors
-    Vendor.by_market(@id)
+    @vendor = Vendor.by_market(@id)
+  end
+
+  def products
+    vendsum = []
+    @vendor ||= vendors
+    @vendor.each { |vendor| vendsum << vendor.products }
+    vendsum
+  end
+
+  def preferred_vendor
+    revenue = []
+    @vendor ||= vendors
+    @vendor.each { |vendor| revenue << [vendor, vendor.revenue] }
+    sorted = revenue.sort {|a, b| b[1] <=> a[1]}
+    sorted[0][0]
+  end
+
+  def preferred_vendor(date)
+    revenue = []
+    @vendor ||= vendors
+    @vendor.each do |vendor| 
+      vendor.sales.each do |sale|
+        if sale.date == date
+          revenue << [vendor, vendor.revenue]
+        end
+      end
+    end
+    sorted = revenue.sort {|a, b| b[1] <=> a[1]}
+    sorted[0][0]
+  end
+
+  def worst_vendor
+    revenue = []
+    @vendor ||= vendors
+    @vendor.each { |vendor| revenue << [vendor, vendor.revenue] }
+    sorted = revenue.sort {|a, b| a[1] <=> b[1]}
+    sorted[0][0]
   end
 
   def self.all
@@ -78,6 +115,14 @@ class Market
 
   def self.random
     all.sample
+  end
+
+  def self.search(search_term)
+    all.select do |market|
+      unless market.name.nil?
+        market.name.downcase.include? search_term.downcase
+      end
+    end
   end
 
   private

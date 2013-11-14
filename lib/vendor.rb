@@ -71,6 +71,14 @@ class Vendor
     end 
   end
 
+  def self.most_items(n)
+    @vend_prod_array ||= get_product_array
+    sorted = @vend_prod_array.sort {|a, b| b[1] <=> a[1]}
+    n.times do |rank|
+      puts "#{sorted[rank][0].name} has #{sorted[rank][1]} products"
+    end 
+  end
+
 
   def self.random
     all.sample
@@ -87,6 +95,12 @@ class Vendor
     @vend_rev_array = []
     all.each { |vendor| @vend_rev_array << [vendor, vendor.revenue] }
     @vend_rev_array
+  end
+
+  def self.get_product_array
+    @vend_prod_array = []
+    all.each { |vendor| @vend_prod_array << [vendor, vendor.products.count] }
+    @vend_prod_array
   end
 
 end

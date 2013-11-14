@@ -20,6 +20,10 @@ class Sale
     Product.find(@product_id)
   end
 
+  def date
+    @purchase_time.to_date
+  end
+
   def self.all
     @all_sales ||= get_all_sales
   end
