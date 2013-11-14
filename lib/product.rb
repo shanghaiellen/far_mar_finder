@@ -21,17 +21,16 @@ class Product
   end
 
   def best_day
-    dayhash = sales.group_by { |sale| sale.date}
-    puts dayhash
+    # dayhash = sales.number_sold_on_date.group_by { |sale| sale.date}
+    # puts dayhash
 
-    # result_hash = {:test => "testy"}
-    # sales.each do |sale|
-    #   result_hash[sale.date] = sale.find_by_date
-    #   puts result_hash
-    # end
-    # result_hash = result_hash.sort_by{ |key, value| value}
-    # puts result_hash
-    # result_hash.first
+    result_hash = {}
+    sales.each do |sale|
+      result_hash[sale.date] = sale.number_sold_on_date(sale.date)
+    end
+    result_array = result_hash.to_a
+    result_array = result_array.sort {|a, b| b[1] <=> a[1]}
+    result_array[0]
   end
 
   #ABOVE DOES NOT WORK! Maybe we should write a method that counts all of the sales in a day.
@@ -71,7 +70,9 @@ class Product
     sorted = @product_revenue_array.sort {|a, b| b[1] <=> a[1]}
     n.times do |rank|
       puts "#{sorted[rank][0].name} has a revenue of $#{sorted[rank][1].to_f/100}"
+      return sorted[rank][0]
     end 
+
   end
 
   def self.random

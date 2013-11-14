@@ -24,6 +24,15 @@ class Sale
     @purchase_time.to_date
   end
 
+  def number_sold_on_date(match)
+    number = Sale.all.select do |sale|
+      unless sale.vendor_id.nil?
+        sale.purchase_time.to_date == match
+      end
+    end
+    number.length
+  end
+
   def self.all
     @all_sales ||= get_all_sales
   end
@@ -65,6 +74,7 @@ class Sale
       end
     end
   end
+
 
   def self.find_by_product_id(match)
     all.select do |sale|
