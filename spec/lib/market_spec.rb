@@ -21,6 +21,17 @@ describe Market do
     it "responds to 'find'" do
       market_class.should respond_to :find
     end
+
+    ## custom rspec
+    it "'rand' returns market object" do
+      market_class.random.class.should eq Market
+    end
+
+    ## could potentially create false postive. if fail, run again. 
+    it "two 'rand' objects are not the same object" do
+      market_class.random.should_not eq market_class.random
+    end
+
   end
   
   describe "attributes" do

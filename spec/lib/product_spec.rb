@@ -30,6 +30,17 @@ describe Product do
     it "find the first product by market 1" do
       product_class.by_vendor(1).first.name.should eq "Dry Beets"
     end
+
+    ## custom rspec
+    it "'rand' returns product object" do
+      product_class.random.class.should eq Product
+    end
+
+    ## could potentially create false postive. if fail, run again. 
+    it "two 'rand' objects are not the same object" do
+      product_class.random.should_not eq product_class.random
+    end
+
   end
   
   describe "attributes" do
@@ -63,11 +74,21 @@ describe Product do
     it "responds to :sales" do
       product.should respond_to :sales
     end
-    
+
+    ## should eq 2 but has one sale??
     it "has 1 sales" do
       product.sales.count.should eq 2
     end
-    
+
+    ## custom instance methods
+  describe "instance methods" do
+    let(:product) { product_class.find(13)}
+
+    it "has revenue of 2977" do
+      product.revenue.should eq 2977
+    end
+  end
+
   end
   
 end
