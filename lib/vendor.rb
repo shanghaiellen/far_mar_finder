@@ -51,7 +51,6 @@ class Vendor
     @all_vendors ||= get_all_vendors
   end
 
-
   def self.find(id)
     all.find do |vendor|
       vendor.id == id.to_i
@@ -103,7 +102,6 @@ class Vendor
       puts "#{sorted[rank][0].name} has #{sorted[rank][1]} products"
     end 
   end
-
 
   def self.random
     all.sample

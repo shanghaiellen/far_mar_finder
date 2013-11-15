@@ -21,9 +21,9 @@ class Product
   end
 
   def best_day
+    # potential code optimization in comments
     # dayhash = sales.number_sold_on_date.group_by { |sale| sale.date}
-    # puts dayhash
-
+    # puts dayhash 
     result_hash = {}
     sales.each do |sale|
       result_hash[sale.date] = sale.number_sold_on_date(sale.date)
