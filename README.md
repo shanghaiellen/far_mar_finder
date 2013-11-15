@@ -95,6 +95,7 @@ See below for full description of methods to create.
 
 - `self.by_market(market_id)` - returns all of the vendors with the given `market_id`
 
+
 **Additional Product Methods**
 
 - `vendor` - returns the `Vendor` instance that is associated with this vendor using the `Product` `vendor_id` field
