@@ -28,12 +28,9 @@ class Product
     sales.each do |sale|
       result_hash[sale.date] = sale.number_sold_on_date(sale.date)
     end
-    result_array = result_hash.to_a
-    result_array = result_array.sort {|a, b| b[1] <=> a[1]}
+    result_array = result_array.to_a.sort {|a, b| b[1] <=> a[1]}
     result_array[0]
   end
-
-  #ABOVE DOES NOT WORK! Maybe we should write a method that counts all of the sales in a day.
 
   def revenue
     sales.inject(0) { |total, sale| total + sale.amount}
