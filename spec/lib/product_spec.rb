@@ -30,6 +30,11 @@ describe Product do
     it "find the first product by market 1" do
       product_class.by_vendor(1).first.name.should eq "Dry Beets"
     end
+
+    it "finds 4 proucts with the name 'Tough Beets'" do
+      product_class.find_all_by_name("Tough Beets").count.should eq 4
+    end
+
   end
   
   describe "attributes" do
