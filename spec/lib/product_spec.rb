@@ -89,9 +89,14 @@ describe Product do
     ## custom instance methods
   describe "instance methods" do
     let(:product) { product_class.find(13)}
+    let(:other_product) {product_class.find(254)}
 
-    it "has revenue of 2977" do
+    it "calculates revenue of 2977 for product 13" do
       product.revenue.should eq 2977
+    end
+
+    it "calculates a best day of 7/11/13 for product 254" do
+      other_product.best_day.should eq Date.new(2013,11,7)
     end
   end
 

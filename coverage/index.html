@@ -14,18 +14,18 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-15T15:06:41-08:00">2013-11-15T15:06:41-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-15T15:21:03-08:00">2013-11-15T15:21:03-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">56.99%</span></span>
+    (<span class="covered_percent"><span class="red">60.49%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         924.44
+         1372.93
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>5</b> files in total.
     <b>286</b> relevant lines. 
-    <span class="green"><b>163</b> lines covered</span> and
-    <span class="red"><b>123</b> lines missed </span>
+    <span class="green"><b>173</b> lines covered</span> and
+    <span class="red"><b>113</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -57,7 +57,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>5.0</td>
+        <td>5.1</td>
       </tr>
       
       <tr>
@@ -72,22 +72,22 @@
       
       <tr>
         <td class="strong"><a href="#366a1e21fe643e54593fb4bd8a862627a587f401" class="src_link" title="lib/product.rb">lib/product.rb</a></td>
-        <td class="red strong">72.34 %</td>
+        <td class="yellow strong">82.98 %</td>
         <td>92</td>
         <td>47</td>
-        <td>34</td>
-        <td>13</td>
-        <td>1750.5</td>
+        <td>39</td>
+        <td>8</td>
+        <td>1756.2</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#b720aec435b49232ce507869f1b3784a18d2ec46" class="src_link" title="lib/sale.rb">lib/sale.rb</a></td>
-        <td class="red strong">60.94 %</td>
+        <td class="red strong">68.75 %</td>
         <td>121</td>
         <td>64</td>
-        <td>39</td>
-        <td>25</td>
-        <td>2400.6</td>
+        <td>44</td>
+        <td>20</td>
+        <td>4400.6</td>
       </tr>
       
       <tr>
@@ -238,8 +238,8 @@
           <code class="ruby">  def products</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="19">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="19">
+          <span class="hits">18</span>
           
           <code class="ruby">    Product </code>
         </li>
@@ -1205,11 +1205,11 @@
         <div class="source_table" id="366a1e21fe643e54593fb4bd8a862627a587f401">
   <div class="header">
     <h3>lib/product.rb</h3>
-    <h4><span class="red">72.34 %</span> covered</h4>
+    <h4><span class="yellow">82.98 %</span> covered</h4>
     <div>
       <b>47</b> relevant lines. 
-      <span class="green"><b>34</b> lines covered</span> and
-      <span class="red"><b>13</b> lines missed.</span>
+      <span class="green"><b>39</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -1330,8 +1330,8 @@
           <code class="ruby">  def sales</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="20">
+          <span class="hits">3</span>
           
           <code class="ruby">    Sale.find_by_product_id(@id)</code>
         </li>
@@ -1372,20 +1372,20 @@
           <code class="ruby">    # puts dayhash </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
           
           <code class="ruby">    result_hash = {}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
-          
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
           
           <code class="ruby">    sales.each do |sale|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
+        <li class="covered" data-hits="4" data-linenumber="29">
+          <span class="hits">4</span>
           
           <code class="ruby">      result_hash[sale.date] = sale.number_sold_on_date(sale.date)</code>
         </li>
@@ -1396,16 +1396,16 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="covered" data-hits="4" data-linenumber="31">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">    result_array = result_array.to_a.sort {|a, b| b[1] &lt;=&gt; a[1]}</code>
+          <code class="ruby">    result_array = result_hash.to_a.sort {|a, b| b[1] &lt;=&gt; a[1]}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    result_array[0]</code>
+          <code class="ruby">    result_array[0][0]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
@@ -1450,8 +1450,8 @@
           <code class="ruby">  def self.all</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="40">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="40">
+          <span class="hits">17</span>
           
           <code class="ruby">    @all_vendors ||= get_all_vendors</code>
         </li>
@@ -1474,14 +1474,14 @@
           <code class="ruby">  def self.find(id)</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="44">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="10" data-linenumber="44">
+          <span class="hits">10</span>
           
           <code class="ruby">    all.find do |product|</code>
         </li>
       
-        <li class="covered" data-hits="292" data-linenumber="45">
-          <span class="hits">292</span>
+        <li class="covered" data-hits="546" data-linenumber="45">
+          <span class="hits">546</span>
           
           <code class="ruby">      product.id == id.to_i</code>
         </li>
@@ -1775,11 +1775,11 @@
         <div class="source_table" id="b720aec435b49232ce507869f1b3784a18d2ec46">
   <div class="header">
     <h3>lib/sale.rb</h3>
-    <h4><span class="red">60.94 %</span> covered</h4>
+    <h4><span class="red">68.75 %</span> covered</h4>
     <div>
       <b>64</b> relevant lines. 
-      <span class="green"><b>39</b> lines covered</span> and
-      <span class="red"><b>25</b> lines missed.</span>
+      <span class="green"><b>44</b> lines covered</span> and
+      <span class="red"><b>20</b> lines missed.</span>
     </div>
   </div>
   
@@ -1924,8 +1924,8 @@
           <code class="ruby">  def date</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
-          
+        <li class="covered" data-hits="8" data-linenumber="24">
+          <span class="hits">8</span>
           
           <code class="ruby">    @purchase_time.to_date</code>
         </li>
@@ -1948,20 +1948,20 @@
           <code class="ruby">  def number_sold_on_date(match)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
-          
+        <li class="covered" data-hits="4" data-linenumber="28">
+          <span class="hits">4</span>
           
           <code class="ruby">    number = Sale.all.select do |sale|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
+        <li class="covered" data-hits="51192" data-linenumber="29">
+          <span class="hits">51192</span>
           
           <code class="ruby">      unless sale.vendor_id.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
-          
+        <li class="covered" data-hits="51192" data-linenumber="30">
+          <span class="hits">51192</span>
           
           <code class="ruby">        sale.purchase_time.to_date == match</code>
         </li>
@@ -1978,8 +1978,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
+        <li class="covered" data-hits="4" data-linenumber="33">
+          <span class="hits">4</span>
           
           <code class="ruby">    number.length</code>
         </li>
@@ -2002,8 +2002,8 @@
           <code class="ruby">  def self.all</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="37">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="21" data-linenumber="37">
+          <span class="hits">21</span>
           
           <code class="ruby">    @all_sales ||= get_all_sales</code>
         </li>
@@ -2350,20 +2350,20 @@
           <code class="ruby">  def self.find_by_product_id(match)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="95">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="95">
+          <span class="hits">3</span>
           
           <code class="ruby">    all.select do |sale|</code>
         </li>
       
-        <li class="covered" data-hits="25596" data-linenumber="96">
-          <span class="hits">25596</span>
+        <li class="covered" data-hits="38394" data-linenumber="96">
+          <span class="hits">38394</span>
           
           <code class="ruby">      unless sale.product_id.nil?</code>
         </li>
       
-        <li class="covered" data-hits="25596" data-linenumber="97">
-          <span class="hits">25596</span>
+        <li class="covered" data-hits="38394" data-linenumber="97">
+          <span class="hits">38394</span>
           
           <code class="ruby">        sale.product_id == match.to_i</code>
         </li>

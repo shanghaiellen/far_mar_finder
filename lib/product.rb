@@ -28,8 +28,8 @@ class Product
     sales.each do |sale|
       result_hash[sale.date] = sale.number_sold_on_date(sale.date)
     end
-    result_array = result_array.to_a.sort {|a, b| b[1] <=> a[1]}
-    result_array[0]
+    result_array = result_hash.to_a.sort {|a, b| b[1] <=> a[1]}
+    result_array[0][0]
   end
 
   def revenue
