@@ -30,6 +30,17 @@ describe Vendor do
     it "find the first vendor by market 1" do
       vendor_class.by_market(100).first.name.should eq "Schiller-Ledner"
     end
+
+    ## custom rspec
+    it "'rand' returns Vendor object" do
+      vendor_class.random.class.should eq Vendor
+    end
+
+    ## could potentially create false postive. if fail, run again. 
+    it "two 'rand' objects are not the same object" do
+      vendor_class.random.should_not eq vendor_class.random
+    end
+
   end
   
   describe "attributes" do

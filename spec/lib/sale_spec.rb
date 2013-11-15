@@ -21,6 +21,17 @@ describe Sale do
     it "responds to 'find'" do
       sale_class.should respond_to :find
     end
+
+    ## custom rspec
+    it "'rand' returns sale object" do
+      sale_class.random.class.should eq Sale
+    end
+
+    ## could potentially create false postive. if fail, run again. 
+    it "two 'rand' objects are not the same object" do
+      sale_class.random.should_not eq sale_class.random
+    end
+
   end
   
   describe "attributes" do
