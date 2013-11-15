@@ -37,6 +37,17 @@ class Sale
     @all_sales ||= get_all_sales
   end
 
+  def self.best_day
+    result_hash = {}
+    Sale.all.each do |sale|
+      result_hash[sale.date] = sale.number_sold_on_date(sale.date)
+    end
+    result_array = result_hash.to_a
+    result_array = result_array.sort {|a, b| b[1] <=> a[1]}
+    result_array[0]
+  end
+
+
   def self.find(id)
     all.find do |sale|
       sale.id == id.to_i
