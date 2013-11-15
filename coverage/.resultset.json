@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/liz/ada-class/projects/farmers market/far_mar_finder/lib/far_mar_finder.rb": [
+      "/Users/Ellen/Documents/ada_homework/farmar/far_mar_finder/lib/far_mar_finder.rb": [
         1,
         1,
         1,
@@ -20,7 +20,7 @@
         null,
         null,
         1,
-        16,
+        17,
         null,
         null,
         1,
@@ -29,7 +29,7 @@
         null,
         null
       ],
-      "/Users/liz/ada-class/projects/farmers market/far_mar_finder/lib/market.rb": [
+      "/Users/Ellen/Documents/ada_homework/farmar/far_mar_finder/lib/market.rb": [
         1,
         1,
         null,
@@ -180,7 +180,7 @@
         null,
         null
       ],
-      "/Users/liz/ada-class/projects/farmers market/far_mar_finder/lib/vendor.rb": [
+      "/Users/Ellen/Documents/ada_homework/farmar/far_mar_finder/lib/vendor.rb": [
         null,
         null,
         1,
@@ -311,7 +311,7 @@
         null,
         null
       ],
-      "/Users/liz/ada-class/projects/farmers market/far_mar_finder/lib/product.rb": [
+      "/Users/Ellen/Documents/ada_homework/farmar/far_mar_finder/lib/product.rb": [
         1,
         1,
         null,
@@ -351,7 +351,7 @@
         null,
         null,
         1,
-        15,
+        16,
         null,
         null,
         1,
@@ -361,9 +361,9 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
+        1,
+        8193,
+        8193,
         null,
         null,
         null,
@@ -405,7 +405,7 @@
         null,
         null
       ],
-      "/Users/liz/ada-class/projects/farmers market/far_mar_finder/lib/sale.rb": [
+      "/Users/Ellen/Documents/ada_homework/farmar/far_mar_finder/lib/sale.rb": [
         1,
         null,
         null,
@@ -529,6 +529,6 @@
         null
       ]
     },
-    "timestamp": 1384554802
+    "timestamp": 1384556801
   }
 }

@@ -34,6 +34,7 @@ describe Product do
 
     it "finds 4 proucts with the name 'Tough Beets'" do
       product_class.find_all_by_name("Tough Beets").count.should eq 4
+    end
 
     ## custom rspec
     it "'rand' returns product object" do
