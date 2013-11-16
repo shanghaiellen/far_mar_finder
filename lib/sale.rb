@@ -39,17 +39,14 @@ class Sale
 
   def self.best_day
     result_hash = {}
-    @all_sales ||= get_all_sales
     all.each do |sale|
-      if result_hash[sale.date].nil?
-        result_hash[sale.date] = 1
-      else
-        result_hash[sale.date] += 1
-      end
+      result_hash[sale.date] ||= 0
+      result_hash[sale.date] += 1
     end
     result_array = result_hash.to_a.sort {|a, b| b[1] <=> a[1]}
     result_array[0]
   end
+  #true ? "I'm true" : "I'm false" 
 
 
   def self.find(id)

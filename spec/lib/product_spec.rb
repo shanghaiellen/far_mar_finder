@@ -44,7 +44,6 @@ describe Product do
     ## could potentially create false postive. if fail, run again. 
     it "two 'rand' objects are not the same object" do
       product_class.random.should_not eq product_class.random
-
     end
 
   end
@@ -99,7 +98,6 @@ describe Product do
       other_product.best_day.should eq Date.new(2013,11,7)
     end
   end
-
-  end
+end
   
 end

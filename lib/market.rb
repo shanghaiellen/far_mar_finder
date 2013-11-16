@@ -80,13 +80,10 @@ class Market
   end
 
   def self.find_all_by_city(match)
-    all.select do |market|
-      unless market.city.nil?
-        market.city.downcase == match.downcase
-      end
-    end
+    all.select { |market| market.city.downcase == match.downcase unless market.city.nil? }
   end
 
+#could be shortened with regular expression which might kill nil issue
   def self.find_all_by_state(match)
    all.select do |market|
       unless market.state.nil?

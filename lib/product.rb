@@ -21,15 +21,13 @@ class Product
   end
 
   def best_day
-    # potential code optimization in comments
-    # dayhash = sales.number_sold_on_date.group_by { |sale| sale.date}
-    # puts dayhash 
     result_hash = {}
     sales.each do |sale|
       result_hash[sale.date] = sale.number_sold_on_date(sale.date)
     end
     result_array = result_hash.to_a.sort {|a, b| b[1] <=> a[1]}
     result_array[0][0]
+    #max_by would return key/value pair
   end
 
   def revenue
